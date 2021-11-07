@@ -1,0 +1,29 @@
+PARA REFORÇAR
+
+- Aula 78 - escopo do this com função normal e arrow function
+    - Aula 92 - O this da função aponta para o Global
+
+- Playlist padrões de projeto:
+https://www.youtube.com/playlist?list=PLdPPE0hUkt0qae3Css66CheWAhFjPdDnK
+
+- Aula 127 - flatMap
+
+- Capítulo de NODE inteiro
+
+- Aula 144 (NOTAS)
+    ## Frameworks Web (Backend)
+    - expressjs.com
+    - sailsjs.com
+    - koajs.com
+
+    ## Christopher Alexander (criador padrão de projeto)
+
+    ## CRUD (CREATE READ UPDATE DELETE)
+
+- Aula 163, 164 - PROMISES
+
+- SPA -> SINGLE PAGE APPLICATION
+
+- ROTA53 -> SERVIÇO DE DNS DA AMAZON -> https://aws.amazon.com/pt/route53/
+
+- SEO -> Search Engine Optimization

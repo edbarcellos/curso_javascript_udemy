@@ -1,0 +1,111 @@
+<style>
+    p {
+        position: absolute;
+        display: none;
+    }
+
+    .circular {
+        width: 513px;
+        background-color: #444;
+    }
+
+    .texto {
+        width: 500px;
+    }
+
+    .texto img {
+        margin-right: 10px;
+    }
+
+    .cidade {
+        width: 513px;
+        height: 342px;
+        background-image: url('http://files.cod3r.com.br/curso-web/imagem4.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 200%;
+    }
+</style>
+
+<div wm-slider>
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg"
+        alt="Muro da Cidade"
+        width="513" height="342"
+        title="Muro da Cidade por Tarso Bessa">
+    </p>
+    
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem2.gif" 
+        alt="Intro Cod3r" height="342">
+    </p>
+    
+    <p class="circular">
+        <img src="http://files.cod3r.com.br/curso-web/imagem3.png" 
+        alt="Rio de Janeiro" height="342">
+    </p>
+    
+    <p class="texto">
+        <img src="http://files.cod3r.com.br/curso-web/avatar.jpg" 
+        alt="Avatar" height="50" align="left">
+        Anim exercitation est labore aliqua elit ullamco nulla fugiat. Culpa excepteur veniam est do aute labore eiusmod. Minim consectetur est quis duis.
+    
+    Ut dolore nulla consequat pariatur. Aliqua aliqua est minim id consequat consectetur consequat. Quis eu in Lorem ea ea deserunt.
+    
+    Ad tempor est dolore exercitation laboris veniam et irure enim id commodo. Velit ullamco commodo tempor tempor nisi eu dolore amet magna elit cillum dolore sint. Anim commodo nulla eu minim magna cupidatat commodo tempor incididunt nulla minim anim eu. Aliqua anim sunt sint in anim incididunt. Voluptate ullamco non irure aute aute nostrud irure laboris.
+    </p>
+    
+    <p class="cidade"></p>
+    
+    <p>
+        <picture>
+            <source srcset="http://files.cod3r.com.br/curso-web/logo-larga.png"
+            media="(min-width: 600px">
+            <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png" alt="Logo">
+        </picture>
+    </p>
+</div>
+
+<script>
+    window.addEventListener('load', function () {
+
+        function moverElemento(elemento, passo) {
+            return new Promise(resolve => {
+                posInicial = window.innerWidth;
+                elemento.style.left = `${posInicial}px`;
+                elemento.style.display = 'block';
+                distancia = posInicial + elemento.clientWidth;
+                let posicao = posInicial;            
+    
+                const loop = setInterval(function() {
+                        if (distancia <= 0) {
+                            elemento.style.display = 'none';                        
+                            clearInterval(loop);                        
+                            resolve();
+                        }                        
+                        elemento.style.left = posicao + 'px';
+                        posicao -= passo;
+                        distancia -= passo;             
+                }, 10);
+            })
+        }
+        
+        async function executarSlider(passo) {
+            let elementos = document.querySelectorAll('[wm-slider] > p');            
+            let index = 0;
+    
+            while (true) {                
+                await moverElemento(elementos[index], passo);
+                if (index == elementos.length - 1) {
+                    index = 0;
+                } else {
+                    index++;
+                }
+    
+            }        
+        }
+    
+        executarSlider(5);
+
+    });
+</script>

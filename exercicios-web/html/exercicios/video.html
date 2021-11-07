@@ -1,0 +1,96 @@
+<style>
+    .progresso {
+        height: 20px;
+        width: 800px;
+        border: solid 1px #444;
+        margin: 20px 0px;
+    }
+
+    .progresso > div {
+        background-color: #666;
+        color: #fff;
+        height: 100%;
+        text-align: right;
+        font-size: 14px;
+        width: 0%;
+    }
+
+    .percent {
+        position: inline;
+        margin: 0px 2px;
+        white-space: nowrap;        
+        font-family: 'Tahoma';
+        font-size: 14px;
+    }
+</style>
+
+<div>
+    <video id="meuVideo" width="800" controls controlsList="nodownload">
+        <source src="http://files.cod3r.com.br/curso-web/video.mp4" type="video/mp4" />
+        Seu browser não suporta esse vídeo.
+    </video>
+</div>
+
+
+<div wm-progresso="meuVideo" class="progresso">
+    <div></div>
+</div>
+
+<div>
+    <button wm-play="meuVideo">Play</button>
+    <button wm-pause="meuVideo">Pause</button>
+</div>
+
+<br />
+
+<div>
+    <audio id="meuAudio" controls>
+        <source src="../resources/track02.ogg" type="audio/ogg" />
+        <source src="../resources/track01.ogg" type="audio/ogg" />
+    </audio>
+</div>
+
+<div wm-progresso="meuAudio" class="progresso">
+    <div></div>
+</div>
+
+<div>
+    <button wm-play="meuAudio">Play</button>
+    <button wm-pause="meuAudio">Pause</button>
+</div>
+
+<script>        
+    function getPercentPlayed(media) {
+        return (media.currentTime * 100) / media.duration;
+    }
+    
+    function paintProgressBar(bar, media) {
+        let percent = getPercentPlayed(media);
+        bar.style.width = `${percent}%`;
+        bar.innerHTML = `<span class="percent">${percent.toFixed(1)}%</span>`;
+        return percent;
+    }
+    
+    function startPainting(bar, media) {        
+        setInterval(function() {
+            paintProgressBar(bar, media);
+        }, 1);
+    }    
+    
+    function configMedia(mediaId) {
+        const media = document.getElementById(mediaId);
+        const playButton = document.querySelector(`[wm-play='${mediaId}']`);
+        const pauseButton = document.querySelector(`[wm-pause='${mediaId}']`);
+        const progressBar = document.querySelector(`[wm-progresso='${mediaId}'] > div`);
+
+        media.oncontextmenu = () => false;
+
+        playButton.onclick = e => media.play();
+        pauseButton.onclick = e => media.pause();
+
+        startPainting(progressBar, media);
+    }
+
+    configMedia('meuVideo');
+    configMedia('meuAudio');
+</script>

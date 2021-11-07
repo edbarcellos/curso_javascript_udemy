@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+
+<h1>Projeto</h1>
+<ul class="tree">
+    <li>
+        <span wm-menu>backend</span>
+        <ul>
+            <li>
+                <span wm-menu>app</span>
+                <ul>
+                    <li>produto.js</li>
+                    <li>usuario.js</li>
+                    <li>venda.js</li>
+                </ul>
+            </li>
+            <li>
+                <span wm-menu>config</span>
+                <ul>
+                    <li>banco.js</li>
+                    <li>rotas.js</li>
+                    <li>servidor.js</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <span wm-menu>frontend</span>                
+        <ul>
+            <li>
+                <span wm-menu>public</span>                
+                <ul>
+                    <li>app.css</li>
+                    <li>app.js</li>
+                    <li>index.html</li>
+                </ul>                    
+            </li>
+        </ul>        
+    </li>
+</ul>
+
+<script>
+    document.querySelectorAll('[wm-menu]').forEach(menu => {
+        menu.onclick = function(e) {
+            const ul = menu.nextElementSibling
+            const display = ul.style.display            
+            ul.style.display = display != 'none' ? 'none' : 'block'
+        }
+    })
+</script>

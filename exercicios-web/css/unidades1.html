@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Aula 249 - Unidades #01</title>
+    <style>
+        .unidades-absolutas {
+            position: absolute;
+            font-size: 40px;
+            padding: 20px;
+            border: solid 5px #222;
+            margin: 30px;
+            width: 4cm; /* Pouco usado */
+            height: 20mm; /* Pouco usado */
+            top: 150px; /* só aplicou por conta de position: absolute */
+            left: 200px; /* só aplicou por conta de position: absolute */
+        }
+
+        .unidades-relativas {
+            position: absolute;
+            font-size: 4em;
+            padding: 5%;
+            border: solid 1vw #222;
+            margin: .8%;
+            width: 20vw;
+            height: 15vh;
+            bottom: 5%;
+            right: 5%;
+        }
+    </style>
+</head>
+
+<body>    
+    <div class="unidades-absolutas">Opa!</div>
+    <div class="unidades-relativas">Epa!</div>
+</body>
+
+</html>
+
+<!-- 
+    px -> absoluto (pixel calculado e padronizado)
+
+    Viewport -> o tamanho da janela do browser (muda com o redimensionamento)
+    vh -> percentual da altura (1/100 da altura)
+    vw -> percentual da largura (1/100 da largura)
+    vmin -> sempre trará a MENOR medida (seja a largura ou altura)
+    vmax -> sempre trará a MAIOR medida (seja a largura ou altura)
+
+    rem -> tamanho relativo baseada na raiz (tag/item mais superior da aplicação)
+    em -> tamanho relativo baseado no pai imediato (recursivo)
+
+    % -> caso especial (vai referenciar algo de acordo com o tipo de configuração)
+
+-->

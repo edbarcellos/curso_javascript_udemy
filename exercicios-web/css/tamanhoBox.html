@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tamanho Box</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-size: 45px;
+            margin: 0;
+        }
+
+        div {
+            background-color: deepskyblue;
+            width: 100%;
+            height: 300px;
+            padding: 100px;
+            border: solid 20px;            
+
+            /* O padrão do box-sizing é 'content-box', que calcula os valores
+            baseados somente no conteúdo do box. Ao adicionar border e padding,
+            o tamanho final será maior do que o esperado pois esses itens não 
+            entram na contagem.
+            
+            Ao setarmos o box-sizing para 'border-box', todos os outros elementos
+            entram na contagem, e o comportamento passa a ser o esperado.
+            
+            OBS: margin não entra na contagem mesmo usando 'border-box'
+            */
+            box-sizing: border-box;
+
+        }
+    </style>
+</head>
+<body>
+    <div>
+        O tamanho do Box é...
+    </div>
+</body>
+</html>
