@@ -9,8 +9,44 @@
     <div id="primeiro">#primeiro</div>
     <div>Segundo</div>
     <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
-    <script>              
-        // ...
+    <script>                      
+
+        document.querySelector('#primeiro').classList.add('destaque');
+
+        const selecionar = seletor => {
+            document.querySelectorAll(seletor).forEach(e => e.classList.add('destaque'));
+            /* querySelectorAll retorna um NodeList que possui um forEach, mas não possui outras funções de array */
+        }
+
+        const deselecionar = seletor => {
+            document.querySelectorAll(seletor).forEach(e => e.classList.remove('destaque'));
+        }
+
+        selecionar('div');
+        
+        deselecionar('*');
+        selecionar('.terceiro.ultimo'); /* a ordem não importa */
+
+        deselecionar('*');
+        selecionar(':not(#primeiro)'); /* pega todos, menos o primeiro */
+
+        /**
+         * caniuse.com -> Para descobrir se uma determinada função JS é bem
+         * suportada pelos browsers ou não
+         */
+
+        deselecionar('*');
+        selecionar(':nth-child(1)'); /* pega todos os "primeiros filhos" de algo */deselecionar
+
+        deselecionar('*');
+        selecionar('div:nth-of-type(1)'); /* pega o primeiro elemento do tipo div */
+
+        deselecionar('*');
+        selecionar('[wb-attrib]'); /* pega o elemento que contém o atributo */
+
+
+
+
     </script>
 </body>
 </html>

@@ -22,7 +22,33 @@
         <p>Fim</p>
     </div>
     <script>
-        // ...
+        function log() {
+            console.log(this);
+        }
+
+        HTMLCollection.prototype.log = log;
+        HTMLElement.prototype.log = log;
+        NodeList.prototype.log = log;
+        Node.prototype.log = log;
+
+        const lista = document.querySelector('div ul');
+        lista.parentNode.log(); /* Seleciona o elemento pai */
+        lista.childNodes.log(); /* Seleciona os elementos filhos - pega espaços */
+
+        const primeiro = lista.firstChild; /* pega o primeiro elemento */
+        primeiro.log();
+        primeiro.nextSibling.log(); /* pega o primeiro irmão do primeiro element */
+
+        const ultimo = lista.lastChild; /* pega o último elemento */
+        ultimo.log();
+        ultimo.previousSibling.log(); /* pega o irmão anterior ao último elemento */
+
+        lista.children.log();
+        lista.firstElementChild.log();
+        lista.lastElementChild.log();
+        lista.parentNode.previousElementSibling.log();
+
+        document.querySelectorAll('div ul li').log(); /* melhor estratégia, vai direto ao ponto */
     </script>
 </body>
 

@@ -31,7 +31,17 @@
         <button>Pesquisar</button>
     </form>
     <script>
-        // ...
+
+        console.log(document.forms); /* HTMLCollection */
+        console.log(document.forms[0]); /* elemento direto */
+        console.log(document.getElementsByName('pesquisa')); /* NodeList */
+        console.log(document.getElementsByTagName('form')); /* HTMLCollection */
+        console.log(document.pesquisa); /* elemento direto */
+        console.log(document.pesquisa.q); /* elemento direto */
+        document.pesquisa.q.value = "Linux Brasil";
+        document.pesquisa.hl.value = 'en-us';
+        console.log(document.pesquisa.hl.selectedIndex);
+        
     </script>
 </body>
 

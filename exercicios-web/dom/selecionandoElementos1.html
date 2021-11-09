@@ -10,7 +10,22 @@
     <div>Segundo</div>
     <div class="terceiro ultimo">.terceiro .ultimo</div>
     <script>              
-        // ...
+        /* Forma de seleção por ID */
+        document.getElementById('primeiro').classList.add('destaque');
+
+        /* Forma de seleção por nome da TAG */
+        const divs = document.getElementsByTagName('div');
+        
+            /* Métodos para transformar o resultado em um Array */
+            Array.from(divs).forEach(e => e.classList.remove('destaque'));
+            const divsArray = [...divs];            
+            divsArray.forEach(e => e.classList.add('destaque'));
+
+        /* Forma de seleção por nome da classe */
+        const ultimosElementos = document.getElementsByClassName('ultimo');
+        for (let e of ultimosElementos) {
+            e.classList.remove('destaque');
+        }
     </script>
 </body>
 </html>
